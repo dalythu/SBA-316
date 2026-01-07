@@ -1,13 +1,13 @@
 const app = document.getElementById('app')
 
 // Create form
-const form = document.createElement("form")
-form.id = "task-form";
+const form = document.createElement('form')
+form.id = 'task-form'
 
 // Create input
 const input = document.createElement('input')
 input.id = 'task-input'
-input.type ='text'
+input.type = 'text'
 input.placeholder = 'Type a task'
 input.required = true
 input.minLength = 2
@@ -18,7 +18,7 @@ button.type = 'submit'
 button.textContent = 'Add'
 
 //Error message
-const error = document.createElement('p');
+const error = document.createElement('p')
 error.id = 'error'
 
 //Tast list
@@ -33,3 +33,21 @@ form.appendChild(button)
 app.appendChild(form)
 app.appendChild(error)
 app.appendChild(ul)
+
+form.addEventListener('submit', function (evt) {
+  const taskText = input.value.trim()
+
+  if (taskText === '') {
+    error.textContent = 'Please enter a task.'
+    return
+  }
+
+  error.textContent = ''
+
+  const li = document.createElement('li')
+  li.textContent = taskText
+
+  ul.appendChild(li)
+
+  input.value = ''
+})
