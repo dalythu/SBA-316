@@ -35,6 +35,8 @@ app.appendChild(error)
 app.appendChild(ul)
 
 form.addEventListener('submit', function (evt) {
+  evt.preventDefault()
+
   const taskText = input.value.trim()
 
   if (taskText === '') {
