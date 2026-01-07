@@ -49,6 +49,10 @@ form.addEventListener('submit', function (evt) {
   const li = document.createElement('li')
   li.textContent = taskText
 
+  li.addEventListener('click', function () {
+    li.classList.toggle('completed')
+  })
+
   ul.appendChild(li)
 
   input.value = ''
