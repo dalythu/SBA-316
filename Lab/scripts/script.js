@@ -1,6 +1,35 @@
 const app = document.getElementById('app')
-const message = document.createElement('p')
 
-message.textContent = 'JavaScript created this paragraph.'
+// Create form
+const form = document.createElement("form")
+form.id = "task-form";
 
-app.appendChild(message)
+// Create input
+const input = document.createElement('input')
+input.id = 'task-input'
+input.type ='text'
+input.placeholder = 'Type a task'
+input.required = true
+input.minLength = 2
+
+//Create button
+const button = document.createElement('button')
+button.type = 'submit'
+button.textContent = 'Add'
+
+//Error message
+const error = document.createElement('p');
+error.id = 'error'
+
+//Tast list
+const ul = document.createElement('ul')
+ul.id = 'task-list'
+
+// Put input & button into the form
+form.appendChild(input)
+form.appendChild(button)
+
+//put everything into the app container
+app.appendChild(form)
+app.appendChild(error)
+app.appendChild(ul)
